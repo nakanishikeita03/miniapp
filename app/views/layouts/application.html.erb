@@ -1,0 +1,56 @@
+
+<head>
+    <title>賢者の一読</title>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+    <style type="text/css" href="./style.css"></style>
+
+    <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script><!DOCTYPE html>
+    <script type="text/javascript">
+      WebFontConfig = {
+        google: { families: [ 'Unica+One::latin' ] }
+      };
+      (function() {
+        var wf = document.createElement('script');
+        wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+          '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+        wf.type = 'text/javascript';
+        wf.async = 'true';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(wf, s);
+      })();
+    </script>
+  </head>
+<body>
+
+   <nav class="nav-extended" style="background-color: #333333;">
+    <div class="nav-wrapper">
+      <a href="/posts" class="brand-logo" style="color: #ffffff; margin-left: 650px; display:block; font-family:STKaiti;">賢者の一読</a>
+      <% if user_signed_in?%>
+      <ul class="right hide-on-med-and-down">
+        <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+      </ul>
+      <% else %>
+      <ul class="right hide-on-med-and-down">
+        <li><%= link_to "ログイン", new_user_session_path, class: 'post' %></li>
+        <li> <%= link_to "新規登録", new_user_registration_path, class: 'post' %></li>
+      </ul>
+      <% end %>
+    </div>
+    <div class="nav-content " >
+    <a class="btn-floating btn-large halfway-fab waves-effect waves-light  material-icons" style="background-color: #d6d4d3; color:black" href="/posts/new">＋</a>
+    </div>
+  </nav>
+
+<script type="text/javascript" src="./app.js"></script>
+  </head>
+
+  <body>
+    <%= yield %>
+  </body>
+</html>

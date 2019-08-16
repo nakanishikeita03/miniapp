@@ -1,0 +1,9 @@
+<div class="contents row" style="height:100%; margin-top:-24px;">
+  <%= form_tag('/posts', method: :post) do %>
+    <h3 style="color:white; font-size:20px;">
+      投稿する
+    </h3>
+    <textarea cols="30" name="text" placeholder="text" rows="10" style="color:white;"></textarea>
+    <input type="submit" value="SENT">
+  <% end %>
+</div>
